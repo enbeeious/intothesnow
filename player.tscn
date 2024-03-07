@@ -1,24 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://weovxsyhf43y"]
+[gd_scene load_steps=4 format=3 uid="uid://1keenume4kfl"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4rtvj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_334tk"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0uyrt"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_uo81r"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ovx07"]
 
-[node name="player" type="RigidBody3D"]
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-can_sleep = false
-lock_rotation = true
+[node name="player" type="CharacterBody3D"]
+floor_constant_speed = true
+floor_max_angle = 1.0472
 script = ExtResource("1_4rtvj")
-
-[node name="collider" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_334tk")
 
 [node name="pcamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="debugmesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_uo81r")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_0uyrt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ovx07")
